@@ -27,6 +27,8 @@ def getCsv():
     print('获取数据中...')
     time.sleep(5)
     driver.quit()
+    print('已获取 csv 文件')
+
 
 
 def processCsv():
@@ -131,6 +133,8 @@ def processCsv():
             lineLoc+=1
 
     fileExcel.save(os.getcwd() + r'\\指数温度\\%s.xls'%filesList[0].split('_')[-2])
+    os.remove(os.path.join(os.getcwd(),filesList[0]))
+    print('csv 文件分析完毕')
 
 
 
