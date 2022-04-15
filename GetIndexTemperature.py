@@ -1,6 +1,6 @@
 import os
 import time
-
+import datetime
 import pandas as pd
 import xlwt
 from selenium import webdriver
@@ -24,10 +24,10 @@ def getCsv():
 
     # 导出 csv 数据
     driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/div[1]/button').click()
-    print('获取数据中...')
+    print('\t获取数据中...')
     time.sleep(5)
     driver.quit()
-    print('已获取 csv 文件')
+    print('\t已获取 csv 文件')
 
 
 
@@ -134,11 +134,19 @@ def processCsv():
 
     fileExcel.save(os.getcwd() + r'\\指数温度\\%s.xls'%filesList[0].split('_')[-2])
     os.remove(os.path.join(os.getcwd(),filesList[0]))
-    print('csv 文件分析完毕')
+    print('\tcsv 文件分析完毕')
 
 
 
 if __name__ == '__main__':
-    getCsv()
-    processCsv()
-    
+    # getCsv()
+    # processCsv()
+    i=datetime.datetime.now()
+    print(i.isoweekday())
+    while True:
+        today=datetime.datetime.now().isoweekday()
+        if today>=1 and today<=5:
+            getCsv()
+            processCsv()
+            print('%s 数据已获取！'%datetime.datetime.now())
+            time.sleep(24*3600)
