@@ -14,7 +14,7 @@ def getCsv():
     option.add_experimental_option('prefs',prefs)
     option.add_argument('disable-infobars')
     driver=webdriver.Chrome(options=option)
-    driver.get('https://www.lixinger.com/analytics/index/dashboard/value#')
+    driver.get('https://www.lixinger.com/analytics/index/dashboard/value?source=all&series=all&metrics-type=mcw&granularity=y10&sort-name=stock.name&sort-order=desc')
 
     # 登录
     driver.find_element_by_xpath('/html/body/div[7]/div[1]/div/div/div/div[2]/div/div/form/div[1]/input').send_keys('18910629881')
