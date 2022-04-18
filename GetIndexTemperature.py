@@ -141,12 +141,12 @@ def processCsv():
 if __name__ == '__main__':
     # getCsv()
     # processCsv()
-    i=datetime.datetime.now()
-    print(i.isoweekday())
+    # i=datetime.datetime.now()
+    # print(i.isoweekday())
     while True:
-        today=datetime.datetime.now().isoweekday()
-        if today>=1 and today<=5:
-            getCsv()
-            processCsv()
-            print('%s 数据已获取！'%datetime.datetime.now())
-            time.sleep(24*3600)
+        # today=datetime.datetime.now().isoweekday()
+        # if today>=1 and today<=5:
+        getCsv()
+        processCsv()
+        print('%s 数据已获取！'%datetime.datetime.now())
+        time.sleep(24*3600)
